@@ -1,27 +1,33 @@
 import React, { Component } from 'react'
 
 class MemeGenerator extends Component {
-    constructor(){
-        super()
-        this.state= {
-            toptext: '',
-            bottomtext: '',
-            randomImg: 'http://i.imgflip.com/1bij.jpg',
-            allMemesImgs: []
-        }
+    state = {
+                toptext: '',
+                bottomtext: '',
+                randomImg: 'http://i.imgflip.com/1bij.jpg',
+                allMemesImgs: []
+            }
+    // constructor(){
+    //     super()
+    //     this.state= {
+    //         toptext: '',
+    //         bottomtext: '',
+    //         randomImg: 'https://i.imgflip.com/1bij.jpg',
+    //         allMemesImgs: []
+    //     }
 
-        this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
-    }
+    //    // this.handleChange = this.handleChange.bind(this)
+    //     // this.handleSubmit = this.handleSubmit.bind(this)
+    // }
 
-    handleChange(e){
+    handleChange = (e) =>{
         const {name, value} = e.target
         this.setState({
             [name]:value
         })
     }
 
-    handleSubmit(e){
+    handleSubmit = (e) =>{
         e.preventDefault()
         const random = Math.floor(Math.random() * this.state.allMemesImgs.length)
         const randomMemeImg = this.state.allMemesImgs[random].url
